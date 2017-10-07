@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+import RPi.GPIO as GPIO
+import time
+import sys
+from hx711 import HX711
+
+hx = HX711(5, 6)
+hx.set_reading_format("LSB", "MSB")
+hx.set_reference_unit(1701)
+hx.reset()
+hx.tare()
+
+print hx.OFFSET
+
+GPIO.cleanup()
